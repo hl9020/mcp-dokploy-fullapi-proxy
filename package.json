@@ -1,6 +1,6 @@
 {
   "name": "mcp-dokploy-fullapi-proxy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Full API proxy MCP for the entire Dokploy API - single tool, skill-driven, 445 endpoints",
   "type": "module",
   "main": "dist/index.js",
