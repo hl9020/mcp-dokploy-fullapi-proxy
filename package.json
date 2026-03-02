@@ -1,0 +1,28 @@
+{
+  "name": "mcp-dokploy-fullapi-proxy",
+  "version": "1.0.3",
+  "description": "Full API proxy MCP for the entire Dokploy API - single tool, skill-driven, 445 endpoints",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "update-skills": "python scripts/update-skills.py"
+  },
+  "keywords": [
+    "mcp",
+    "dokploy",
+    "proxy"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.13",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
