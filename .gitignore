@@ -3,3 +3,4 @@ scripts/
 dist/
 docs/
 .env
+config.json

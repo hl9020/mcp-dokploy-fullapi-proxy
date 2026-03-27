@@ -1,76 +1,97 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+import { loadConfig, resolveInstance } from "./utils/config.js";
+import type { ServerConfig } from "./types/config.js";
 
-const DOKPLOY_URL = process.env.DOKPLOY_URL ?? "http://localhost:3000/api";
-const DOKPLOY_TOKEN = process.env.DOKPLOY_TOKEN ?? process.env.DOKPLOY_API_KEY ?? "";
+const config: ServerConfig = loadConfig(process.env.DOKPLOY_CONFIG);
 
-if (!DOKPLOY_TOKEN) {
-  console.error("DOKPLOY_TOKEN env var required");
+const instanceIds = Object.keys(config.instances);
+if (instanceIds.length === 0) {
+  console.error("No Dokploy instances configured. Set DOKPLOY_URL+DOKPLOY_TOKEN env vars or provide a config.json");
   process.exit(1);
 }
 
+console.error(`Loaded ${instanceIds.length} instance(s): ${instanceIds.join(", ")} (default: ${config.defaultInstance})`);
+
 const server = new McpServer({
   name: "mcp-dokploy-fullapi-proxy",
-  version: "1.0.0",
+  version: "1.1.0",
 });
 
 function pickFields(data: unknown, fields: string[]): unknown {
   if (!data || typeof data !== "object") return data;
   if (Array.isArray(data)) return data.map(item => pickFields(item, fields));
   const obj = data as Record<string, unknown>;
-  const result: Record<string, unknown> = {};
-  for (const key of Object.keys(obj)) {
-    if (fields.includes(key)) {
-      result[key] = obj[key];
-    } else if (typeof obj[key] === "object" && obj[key] !== null) {
-      const nested = pickFields(obj[key], fields);
-      // nur hinzufügen wenn nested nicht leer ist
+  const r: Record<string, unknown> = {};
+  for (const k of Object.keys(obj)) {
+    if (fields.includes(k)) {
+      r[k] = obj[k];
+    } else if (typeof obj[k] === "object" && obj[k] !== null) {
+      const nested = pickFields(obj[k], fields);
       if (Array.isArray(nested) ? (nested as unknown[]).length > 0 : Object.keys(nested as object).length > 0) {
-        result[key] = nested;
+        r[k] = nested;
       }
     }
   }
-  return result;
+  return r;
 }
+
+const instanceDesc = instanceIds.length > 1
+  ? ` Use 'instance' to target a specific Dokploy instance (available: ${instanceIds.join(", ")}). Default: ${config.defaultInstance}.`
+  : "";
 
 server.tool(
   "dokploy",
   "Universal Dokploy API proxy. Calls any tRPC endpoint. " +
     "Use method like 'project.all', 'application.deploy', 'compose.update'. " +
     "Params are passed as JSON body to the API. " +
-    "Optional 'pick' filters the response to only include specified field names (e.g. pick: ['mysql'] on project.all returns only mysql arrays).",
-  { method: z.string(), params: z.record(z.string(), z.unknown()).optional(), pick: z.array(z.string()).optional() },
-  async ({ method, params, pick }) => {
-    const baseUrl = `${DOKPLOY_URL}/trpc/${method}`;
+    "Optional 'pick' filters the response to only include specified field names." +
+    instanceDesc,
+  {
+    method: z.string(),
+    params: z.record(z.string(), z.unknown()).optional(),
+    pick: z.array(z.string()).optional(),
+    instance: z.string().optional().describe("Target Dokploy instance ID"),
+  },
+  async ({ method, params, pick, instance }) => {
+    const resolved = resolveInstance(config, instance);
+    if (!resolved) {
+      const msg = instance
+        ? `Unknown instance '${instance}'. Available: ${instanceIds.join(", ")}`
+        : "No default instance configured";
+      return { content: [{ type: "text" as const, text: `❌ ${msg}` }], isError: true };
+    }
+
+    const { id, instance: inst } = resolved;
+    const baseUrl = `${inst.url}/trpc/${method}`;
     const hasParams = params && Object.keys(params).length > 0;
+    const prefix = instanceIds.length > 1 ? `[${id}] ` : "";
 
     try {
       let res: Response;
       if (hasParams) {
-        // tRPC GET queries: params as ?input=<JSON>
         const qs = new URLSearchParams({ input: JSON.stringify({ json: params }) });
         res = await fetch(`${baseUrl}?${qs}`, {
           method: "GET",
-          headers: { "x-api-key": DOKPLOY_TOKEN },
+          headers: { "x-api-key": inst.token },
         });
-        // Fallback to POST for mutations
         if (res.status === 405) {
           res = await fetch(baseUrl, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "x-api-key": DOKPLOY_TOKEN },
+            headers: { "Content-Type": "application/json", "x-api-key": inst.token },
             body: JSON.stringify({ json: params }),
           });
         }
       } else {
         res = await fetch(baseUrl, {
           method: "GET",
-          headers: { "x-api-key": DOKPLOY_TOKEN },
+          headers: { "x-api-key": inst.token },
         });
         if (res.status === 405) {
           res = await fetch(baseUrl, {
             method: "POST",
-            headers: { "Content-Type": "application/json", "x-api-key": DOKPLOY_TOKEN },
+            headers: { "Content-Type": "application/json", "x-api-key": inst.token },
             body: "{}",
           });
         }
@@ -82,7 +103,7 @@ server.tool(
 
       if (!res.ok) {
         const msg = typeof data === "object" ? JSON.stringify(data, null, 2) : String(data);
-        return { content: [{ type: "text" as const, text: `❌ ${res.status} ${res.statusText}\n${msg}` }], isError: true };
+        return { content: [{ type: "text" as const, text: `${prefix}❌ ${res.status} ${res.statusText}\n${msg}` }], isError: true };
       }
 
       const result = typeof data === "object" && data !== null && "result" in data
@@ -93,9 +114,9 @@ server.tool(
         : result;
 
       const filtered = pick && pick.length > 0 ? pickFields(output, pick) : output;
-      return { content: [{ type: "text" as const, text: JSON.stringify(filtered, null, 2) }] };
+      return { content: [{ type: "text" as const, text: `${prefix}${JSON.stringify(filtered, null, 2)}` }] };
     } catch (e) {
-      return { content: [{ type: "text" as const, text: `❌ Network error: ${e instanceof Error ? e.message : String(e)}` }], isError: true };
+      return { content: [{ type: "text" as const, text: `${prefix}❌ Network error: ${e instanceof Error ? e.message : String(e)}` }], isError: true };
     }
   }
 );
