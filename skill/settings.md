@@ -1,4 +1,4 @@
-# Settings, Admin & Stripe
+# Settings, Admin, Stripe, Whitelabeling & Audit Log
 
 ## Settings
 
@@ -212,6 +212,11 @@ dokploy("settings.isUserSubscribed")
 dokploy("settings.health")
 ```
 
+### settings.checkInfrastructureHealth
+```
+dokploy("settings.checkInfrastructureHealth")
+```
+
 ### settings.setupGPU
 ```
 dokploy("settings.setupGPU", { serverId?: "..." })
@@ -373,4 +378,33 @@ dokploy("licenseKey.haveValidLicenseKey")
 ### licenseKey.updateEnterpriseSettings
 ```
 dokploy("licenseKey.updateEnterpriseSettings", { enableEnterpriseFeatures?: "..." })
+```
+
+## Whitelabeling
+
+### whitelabeling.get
+```
+dokploy("whitelabeling.get")
+```
+
+### whitelabeling.update
+```
+dokploy("whitelabeling.update", { whitelabelingConfig: "..." })
+```
+
+### whitelabeling.reset
+```
+dokploy("whitelabeling.reset")
+```
+
+### whitelabeling.getPublic
+```
+dokploy("whitelabeling.getPublic")
+```
+
+## Auditlog
+
+### auditLog.all
+```
+dokploy("auditLog.all", { userId?: "...", userEmail?: "...", resourceName?: "...", action?: "...", resourceType?: "...", from?: "...", to?: "...", limit?: "...", offset?: "..." })
 ```

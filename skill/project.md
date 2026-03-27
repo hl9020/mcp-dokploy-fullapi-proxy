@@ -1,4 +1,4 @@
-# Project & Environment
+# Project, Environment & Tags
 
 ## Project
 
@@ -15,6 +15,11 @@ dokploy("project.one", { projectId: "..." })
 ### project.all
 ```
 dokploy("project.all")
+```
+
+### project.allForPermissions
+```
+dokploy("project.allForPermissions")
 ```
 
 ### project.search
@@ -72,4 +77,46 @@ dokploy("environment.duplicate", { environmentId: "...", name: "...", descriptio
 ### environment.search
 ```
 dokploy("environment.search", { q?: "...", name?: "...", description?: "...", projectId?: "...", limit?: "...", offset?: "..." })
+```
+
+## Tag
+
+### tag.create
+```
+dokploy("tag.create", { name: "...", color?: "..." })
+```
+
+### tag.all
+```
+dokploy("tag.all")
+```
+
+### tag.one
+```
+dokploy("tag.one", { tagId: "..." })
+```
+
+### tag.update
+```
+dokploy("tag.update", { tagId: "...", name?: "...", color?: "...", createdAt?: "...", organizationId?: "..." })
+```
+
+### tag.remove
+```
+dokploy("tag.remove", { tagId: "..." })
+```
+
+### tag.assignToProject
+```
+dokploy("tag.assignToProject", { projectId: "...", tagId: "..." })
+```
+
+### tag.removeFromProject
+```
+dokploy("tag.removeFromProject", { projectId: "...", tagId: "..." })
+```
+
+### tag.bulkAssign
+```
+dokploy("tag.bulkAssign", { projectId: "...", tagIds: "..." })
 ```

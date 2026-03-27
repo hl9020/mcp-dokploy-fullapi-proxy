@@ -1,4 +1,4 @@
-# User & Organization
+# User, Organization & Custom Roles
 
 ## User
 
@@ -12,9 +12,19 @@ dokploy("user.all")
 dokploy("user.one", { userId: "..." })
 ```
 
+### user.session
+```
+dokploy("user.session")
+```
+
 ### user.get
 ```
 dokploy("user.get")
+```
+
+### user.getPermissions
+```
+dokploy("user.getPermissions")
 ```
 
 ### user.haveRootAccess
@@ -119,6 +129,11 @@ dokploy("organization.update", { organizationId: "...", name: "...", logo?: "...
 dokploy("organization.delete", { organizationId: "..." })
 ```
 
+### organization.inviteMember
+```
+dokploy("organization.inviteMember", { email: "...", role: "..." })
+```
+
 ### organization.allInvitations
 ```
 dokploy("organization.allInvitations")
@@ -137,4 +152,41 @@ dokploy("organization.updateMemberRole", { memberId: "...", role: "..." })
 ### organization.setDefault
 ```
 dokploy("organization.setDefault", { organizationId: "..." })
+```
+
+### organization.active
+```
+dokploy("organization.active")
+```
+
+## Customrole
+
+### customRole.all
+```
+dokploy("customRole.all")
+```
+
+### customRole.create
+```
+dokploy("customRole.create", { roleName: "...", permissions: "..." })
+```
+
+### customRole.update
+```
+dokploy("customRole.update", { roleName: "...", permissions: "...", newRoleName?: "..." })
+```
+
+### customRole.remove
+```
+dokploy("customRole.remove", { roleName: "..." })
+```
+
+### customRole.membersByRole
+```
+dokploy("customRole.membersByRole", { roleName: "..." })
+```
+
+### customRole.getStatements
+```
+dokploy("customRole.getStatements")
 ```

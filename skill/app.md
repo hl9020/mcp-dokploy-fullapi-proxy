@@ -50,22 +50,22 @@ dokploy("application.saveBuildType", { applicationId: "...", buildType: "...", d
 
 ### application.saveGithubProvider
 ```
-dokploy("application.saveGithubProvider", { applicationId: "...", repository: "...", branch: "...", owner: "...", buildPath: "...", githubId: "...", watchPaths: "...", enableSubmodules: "...", triggerType?: "..." })
+dokploy("application.saveGithubProvider", { applicationId: "...", repository: "...", branch: "...", owner: "...", buildPath: "...", githubId: "...", triggerType: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveGitlabProvider
 ```
-dokploy("application.saveGitlabProvider", { applicationId: "...", gitlabBranch: "...", gitlabBuildPath: "...", gitlabOwner: "...", gitlabRepository: "...", gitlabId: "...", gitlabProjectId: "...", gitlabPathNamespace: "...", watchPaths: "...", enableSubmodules: "..." })
+dokploy("application.saveGitlabProvider", { applicationId: "...", gitlabBranch: "...", gitlabBuildPath: "...", gitlabOwner: "...", gitlabRepository: "...", gitlabId: "...", gitlabProjectId: "...", gitlabPathNamespace: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveBitbucketProvider
 ```
-dokploy("application.saveBitbucketProvider", { bitbucketBranch: "...", bitbucketBuildPath: "...", bitbucketOwner: "...", bitbucketRepository: "...", bitbucketRepositorySlug: "...", bitbucketId: "...", applicationId: "...", watchPaths: "...", enableSubmodules: "..." })
+dokploy("application.saveBitbucketProvider", { bitbucketBranch: "...", bitbucketBuildPath: "...", bitbucketOwner: "...", bitbucketRepository: "...", bitbucketRepositorySlug: "...", bitbucketId: "...", applicationId: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveGiteaProvider
 ```
-dokploy("application.saveGiteaProvider", { applicationId: "...", giteaBranch: "...", giteaBuildPath: "...", giteaOwner: "...", giteaRepository: "...", giteaId: "...", watchPaths: "...", enableSubmodules: "..." })
+dokploy("application.saveGiteaProvider", { applicationId: "...", giteaBranch: "...", giteaBuildPath: "...", giteaOwner: "...", giteaRepository: "...", giteaId: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveDockerProvider
@@ -75,7 +75,7 @@ dokploy("application.saveDockerProvider", { dockerImage: "...", applicationId: "
 
 ### application.saveGitProvider
 ```
-dokploy("application.saveGitProvider", { customGitBranch: "...", applicationId: "...", customGitBuildPath: "...", customGitUrl: "...", watchPaths: "...", enableSubmodules: "...", customGitSSHKeyId?: "..." })
+dokploy("application.saveGitProvider", { customGitBranch: "...", applicationId: "...", customGitBuildPath: "...", customGitUrl: "...", watchPaths: "...", enableSubmodules?: "...", customGitSSHKeyId?: "..." })
 ```
 
 ### application.disconnectGitProvider
@@ -121,6 +121,11 @@ dokploy("application.killBuild", { applicationId: "..." })
 ### application.readTraefikConfig
 ```
 dokploy("application.readTraefikConfig", { applicationId: "..." })
+```
+
+### application.dropDeployment
+```
+dokploy("application.dropDeployment")
 ```
 
 ### application.updateTraefikConfig

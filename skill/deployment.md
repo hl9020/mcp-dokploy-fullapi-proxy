@@ -17,6 +17,16 @@ dokploy("deployment.allByCompose", { composeId: "..." })
 dokploy("deployment.allByServer", { serverId: "..." })
 ```
 
+### deployment.allCentralized
+```
+dokploy("deployment.allCentralized")
+```
+
+### deployment.queueList
+```
+dokploy("deployment.queueList")
+```
+
 ### deployment.allByType
 ```
 dokploy("deployment.allByType", { id: "...", type: "..." })
@@ -39,14 +49,14 @@ dokploy("deployment.removeDeployment", { deploymentId: "..." })
 dokploy("previewDeployment.all", { applicationId: "..." })
 ```
 
-### previewDeployment.delete
-```
-dokploy("previewDeployment.delete", { previewDeploymentId: "..." })
-```
-
 ### previewDeployment.one
 ```
 dokploy("previewDeployment.one", { previewDeploymentId: "..." })
+```
+
+### previewDeployment.delete
+```
+dokploy("previewDeployment.delete", { previewDeploymentId: "..." })
 ```
 
 ### previewDeployment.redeploy

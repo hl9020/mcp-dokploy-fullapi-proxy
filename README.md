@@ -1,6 +1,6 @@
 # mcp-dokploy-fullapi-proxy
 
-> **Dokploy Version: `v0.28.2` - 445 Endpoints** _(last updated: 2026-03-02)_
+> **Dokploy Version: `v0.28.8` - 473 Endpoints** _(last updated: 2026-03-27)_
 
 Multi-instance Dokploy API proxy MCP. **1 tool, ~200 tokens** instead of 67+ tools consuming ~35,000 tokens per conversation. Supports multiple Dokploy instances via config file.
 
@@ -327,7 +327,7 @@ The `skill/` directory contains API docs split by resource (auto-generated from 
 |---|---|---|
 | Tools registered | 67 | 1 |
 | Permanent context tokens | ~35,000 | ~200 |
-| API coverage | ~16% (67 of 436) | 100% (445 endpoints) |
+| API coverage | ~16% (67 of 436) | 100% (473 endpoints) |
 | On-demand tokens per request | 0 | ~500-2,000 (1 skill file) |
 | Typical savings | - | **77-92% fewer tokens** |
 

@@ -4,7 +4,7 @@ description: >
   Use this skill when the user asks to manage Dokploy infrastructure: deploy apps,
   manage compose services, configure domains, databases, servers, notifications,
   users, git providers, or any Dokploy administration task. Provides complete API
-  reference for all 445 Dokploy tRPC endpoints accessible via the dokploy MCP tool.
+  reference for all 473 Dokploy tRPC endpoints accessible via the dokploy MCP tool.
 ---
 
 # Dokploy MCP Light - API Skill
@@ -19,17 +19,17 @@ Read the matching reference file for the task:
 
 | Task | File | Endpoints |
 |------|------|-----------|
-| Projects & Environments | `project.md` | 14 |
-| Applications (Deploy, Config, Git, Traefik) | `app.md` | 29 |
+| Projects, Environments & Tags | `project.md` | 23 |
+| Applications (Deploy, Config, Git, Traefik) | `app.md` | 30 |
 | Compose Services | `compose.md` | 28 |
 | Domains & SSL | `domain.md` | 9 |
 | Databases (PG, MySQL, MariaDB, Mongo, Redis) | `database.md` | 70 |
-| Deployments, Preview, Rollback | `deployment.md` | 12 |
+| Deployments, Preview, Rollback | `deployment.md` | 14 |
 | Docker Container | `docker.md` | 7 |
 | Server, Cluster, Swarm | `server.md` | 23 |
 | Notifications (Slack, Discord, Telegram, Email, ...) | `notification.md` | 38 |
-| Settings, Admin, Stripe | `settings.md` | 73 |
-| User & Organization | `user.md` | 27 |
+| Settings, Admin, Stripe, Whitelabeling, Audit Log | `settings.md` | 79 |
+| User, Organization & Custom Roles | `user.md` | 37 |
 | Git Providers (GitHub, GitLab, Bitbucket, Gitea) | `git.md` | 30 |
 | Mounts, Redirects, Security, Ports, Backups, Schedule, Certs, Registry, SSH, Destinations, Patches, Volume Backups, AI | `infra.md` | 85 |
 
