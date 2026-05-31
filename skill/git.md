@@ -155,6 +155,16 @@ dokploy("gitea.getGiteaUrl", { giteaId: "..." })
 dokploy("gitProvider.getAll")
 ```
 
+### gitProvider.toggleShare
+```
+dokploy("gitProvider.toggleShare", { gitProviderId: "...", sharedWithOrganization: "..." })
+```
+
+### gitProvider.allForPermissions
+```
+dokploy("gitProvider.allForPermissions")
+```
+
 ### gitProvider.remove
 ```
 dokploy("gitProvider.remove", { gitProviderId: "..." })

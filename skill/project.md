@@ -22,6 +22,11 @@ dokploy("project.all")
 dokploy("project.allForPermissions")
 ```
 
+### project.homeStats
+```
+dokploy("project.homeStats")
+```
+
 ### project.search
 ```
 dokploy("project.search", { q?: "...", name?: "...", description?: "...", limit?: "...", offset?: "..." })

@@ -18,6 +18,11 @@ dokploy("compose.one", { composeId: "..." })
 dokploy("compose.update", { composeId: "...", name?: "...", appName?: "...", description?: "...", env?: "...", composeFile?: "...", refreshToken?: "...", sourceType?: "...", composeType?: "...", repository?: "...", owner?: "...", branch?: "...", autoDeploy?: "...", gitlabProjectId?: "...", gitlabRepository?: "...", gitlabOwner?: "...", gitlabBranch?: "...", gitlabPathNamespace?: "...", bitbucketRepository?: "...", bitbucketRepositorySlug?: "...", bitbucketOwner?: "...", bitbucketBranch?: "...", giteaRepository?: "...", giteaOwner?: "...", giteaBranch?: "...", customGitUrl?: "...", customGitBranch?: "...", customGitSSHKeyId?: "...", command?: "...", enableSubmodules?: "...", composePath?: "...", suffix?: "...", randomize?: "...", isolatedDeployment?: "...", isolatedDeploymentsVolume?: "...", triggerType?: "...", composeStatus?: "...", environmentId?: "...", createdAt?: "...", watchPaths?: "...", githubId?: "...", gitlabId?: "...", bitbucketId?: "...", giteaId?: "..." })
 ```
 
+### compose.saveEnvironment
+```
+dokploy("compose.saveEnvironment", { composeId: "...", env: "..." })
+```
+
 ### compose.delete
 ```
 dokploy("compose.delete", { composeId: "...", deleteVolumes: "..." })
@@ -128,6 +133,11 @@ dokploy("compose.move", { composeId: "...", targetEnvironmentId: "..." })
 dokploy("compose.processTemplate", { base64: "...", composeId: "..." })
 ```
 
+### compose.previewTemplate
+```
+dokploy("compose.previewTemplate", { base64: "...", appName: "...", serverId?: "..." })
+```
+
 ### compose.import
 ```
 dokploy("compose.import", { base64: "...", composeId: "..." })
@@ -141,4 +151,9 @@ dokploy("compose.cancelDeployment", { composeId: "..." })
 ### compose.search
 ```
 dokploy("compose.search", { q?: "...", name?: "...", appName?: "...", description?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### compose.readLogs
+```
+dokploy("compose.readLogs", { composeId: "...", containerId: "...", tail?: "...", since?: "...", search?: "..." })
 ```

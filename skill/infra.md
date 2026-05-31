@@ -7,7 +7,7 @@
 
 ### mounts.create
 ```
-dokploy("mounts.create", { type: "...", mountPath: "...", serviceId: "...", hostPath?: "...", volumeName?: "...", content?: "...", serviceType?: "...", filePath?: "..." })
+dokploy("mounts.create", { type: "...", mountPath: "...", serviceId: "...", hostPath?: "...", volumeName?: "...", content?: "...", filePath?: "...", serviceType?: "..." })
 ```
 
 ### mounts.remove
@@ -22,7 +22,7 @@ dokploy("mounts.one", { mountId: "..." })
 
 ### mounts.update
 ```
-dokploy("mounts.update", { mountId: "...", type?: "...", hostPath?: "...", volumeName?: "...", filePath?: "...", content?: "...", serviceType?: "...", mountPath?: "...", applicationId?: "...", postgresId?: "...", mariadbId?: "...", mongoId?: "...", mysqlId?: "...", redisId?: "...", composeId?: "..." })
+dokploy("mounts.update", { mountId: "...", type?: "...", hostPath?: "...", volumeName?: "...", filePath?: "...", content?: "...", serviceType?: "...", mountPath?: "...", applicationId?: "...", composeId?: "...", libsqlId?: "...", mariadbId?: "...", mongoId?: "...", mysqlId?: "...", postgresId?: "...", redisId?: "..." })
 ```
 
 ### mounts.allNamedByApplicationId
@@ -32,7 +32,7 @@ dokploy("mounts.allNamedByApplicationId", { applicationId: "..." })
 
 ### mounts.listByServiceId
 ```
-dokploy("mounts.listByServiceId", { serviceId: "...", serviceType: "..." })
+dokploy("mounts.listByServiceId", { serviceType: "...", serviceId: "..." })
 ```
 
 ## Redirects
@@ -105,7 +105,7 @@ dokploy("port.update", { portId: "...", publishedPort: "...", publishMode: "..."
 
 ### backup.create
 ```
-dokploy("backup.create", { schedule: "...", prefix: "...", destinationId: "...", database: "...", databaseType: "...", enabled?: "...", keepLatestCount?: "...", mariadbId?: "...", mysqlId?: "...", postgresId?: "...", mongoId?: "...", userId?: "...", backupType?: "...", composeId?: "...", serviceName?: "...", metadata?: "..." })
+dokploy("backup.create", { schedule: "...", prefix: "...", destinationId: "...", database: "...", databaseType: "...", enabled?: "...", keepLatestCount?: "...", mariadbId?: "...", mysqlId?: "...", postgresId?: "...", mongoId?: "...", libsqlId?: "...", userId?: "...", backupType?: "...", composeId?: "...", serviceName?: "...", metadata?: "..." })
 ```
 
 ### backup.one
@@ -148,6 +148,11 @@ dokploy("backup.manualBackupCompose", { backupId: "..." })
 dokploy("backup.manualBackupMongo", { backupId: "..." })
 ```
 
+### backup.manualBackupLibsql
+```
+dokploy("backup.manualBackupLibsql", { backupId: "..." })
+```
+
 ### backup.manualBackupWebServer
 ```
 dokploy("backup.manualBackupWebServer", { backupId: "..." })
@@ -162,12 +167,12 @@ dokploy("backup.listBackupFiles", { destinationId: "...", search: "...", serverI
 
 ### schedule.create
 ```
-dokploy("schedule.create", { name: "...", cronExpression: "...", command: "...", scheduleId?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", userId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
+dokploy("schedule.create", { name: "...", cronExpression: "...", command: "...", scheduleId?: "...", description?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", userId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
 ```
 
 ### schedule.update
 ```
-dokploy("schedule.update", { scheduleId: "...", name: "...", cronExpression: "...", command: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", userId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
+dokploy("schedule.update", { scheduleId: "...", name: "...", cronExpression: "...", command: "...", description?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", userId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
 ```
 
 ### schedule.delete
@@ -210,6 +215,11 @@ dokploy("certificates.remove", { certificateId: "..." })
 ### certificates.all
 ```
 dokploy("certificates.all")
+```
+
+### certificates.update
+```
+dokploy("certificates.update", { certificateId: "...", name?: "...", certificateData?: "...", privateKey?: "..." })
 ```
 
 ## Registry
@@ -271,6 +281,11 @@ dokploy("sshKey.one", { sshKeyId: "..." })
 dokploy("sshKey.all")
 ```
 
+### sshKey.allForApps
+```
+dokploy("sshKey.allForApps")
+```
+
 ### sshKey.generate
 ```
 dokploy("sshKey.generate", { type?: "..." })
@@ -285,12 +300,12 @@ dokploy("sshKey.update", { sshKeyId: "...", name?: "...", description?: "...", l
 
 ### destination.create
 ```
-dokploy("destination.create", { name: "...", provider: "...", accessKey: "...", bucket: "...", region: "...", endpoint: "...", secretAccessKey: "...", serverId?: "..." })
+dokploy("destination.create", { name: "...", provider: "...", accessKey: "...", bucket: "...", region: "...", endpoint: "...", secretAccessKey: "...", additionalFlags: "...", serverId?: "..." })
 ```
 
 ### destination.testConnection
 ```
-dokploy("destination.testConnection", { name: "...", provider: "...", accessKey: "...", bucket: "...", region: "...", endpoint: "...", secretAccessKey: "...", serverId?: "..." })
+dokploy("destination.testConnection", { name: "...", provider: "...", accessKey: "...", bucket: "...", region: "...", endpoint: "...", secretAccessKey: "...", additionalFlags: "...", serverId?: "..." })
 ```
 
 ### destination.one
@@ -310,7 +325,7 @@ dokploy("destination.remove", { destinationId: "..." })
 
 ### destination.update
 ```
-dokploy("destination.update", { name: "...", accessKey: "...", bucket: "...", region: "...", endpoint: "...", secretAccessKey: "...", destinationId: "...", provider: "...", serverId?: "..." })
+dokploy("destination.update", { name: "...", accessKey: "...", bucket: "...", region: "...", endpoint: "...", secretAccessKey: "...", destinationId: "...", provider: "...", additionalFlags: "...", serverId?: "..." })
 ```
 
 ## Patch
@@ -384,7 +399,7 @@ dokploy("volumeBackups.list", { id: "...", volumeBackupType: "..." })
 
 ### volumeBackups.create
 ```
-dokploy("volumeBackups.create", { name: "...", volumeName: "...", prefix: "...", cronExpression: "...", destinationId: "...", serviceType?: "...", appName?: "...", serviceName?: "...", turnOff?: "...", keepLatestCount?: "...", enabled?: "...", applicationId?: "...", postgresId?: "...", mariadbId?: "...", mongoId?: "...", mysqlId?: "...", redisId?: "...", composeId?: "...", createdAt?: "..." })
+dokploy("volumeBackups.create", { name: "...", volumeName: "...", prefix: "...", cronExpression: "...", destinationId: "...", serviceType?: "...", appName?: "...", serviceName?: "...", turnOff?: "...", keepLatestCount?: "...", enabled?: "...", applicationId?: "...", postgresId?: "...", mariadbId?: "...", mongoId?: "...", mysqlId?: "...", redisId?: "...", libsqlId?: "...", composeId?: "...", createdAt?: "..." })
 ```
 
 ### volumeBackups.one
@@ -399,7 +414,7 @@ dokploy("volumeBackups.delete", { volumeBackupId: "..." })
 
 ### volumeBackups.update
 ```
-dokploy("volumeBackups.update", { name: "...", volumeName: "...", prefix: "...", cronExpression: "...", destinationId: "...", volumeBackupId: "...", serviceType?: "...", appName?: "...", serviceName?: "...", turnOff?: "...", keepLatestCount?: "...", enabled?: "...", applicationId?: "...", postgresId?: "...", mariadbId?: "...", mongoId?: "...", mysqlId?: "...", redisId?: "...", composeId?: "...", createdAt?: "..." })
+dokploy("volumeBackups.update", { name: "...", volumeName: "...", prefix: "...", cronExpression: "...", destinationId: "...", volumeBackupId: "...", serviceType?: "...", appName?: "...", serviceName?: "...", turnOff?: "...", keepLatestCount?: "...", enabled?: "...", applicationId?: "...", postgresId?: "...", mariadbId?: "...", mongoId?: "...", mysqlId?: "...", redisId?: "...", libsqlId?: "...", composeId?: "...", createdAt?: "..." })
 ```
 
 ### volumeBackups.runManually
@@ -442,6 +457,21 @@ dokploy("ai.get", { aiId: "..." })
 ### ai.delete
 ```
 dokploy("ai.delete", { aiId: "..." })
+```
+
+### ai.getEnabledProviders
+```
+dokploy("ai.getEnabledProviders")
+```
+
+### ai.analyzeLogs
+```
+dokploy("ai.analyzeLogs", { aiId: "...", logs: "...", context: "..." })
+```
+
+### ai.testConnection
+```
+dokploy("ai.testConnection", { apiUrl: "...", apiKey: "...", model: "..." })
 ```
 
 ### ai.suggest

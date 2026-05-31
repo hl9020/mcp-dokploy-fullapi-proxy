@@ -72,6 +72,11 @@ dokploy("settings.cleanAll", { serverId?: "..." })
 dokploy("settings.cleanMonitoring")
 ```
 
+### settings.getDockerDiskUsage
+```
+dokploy("settings.getDockerDiskUsage")
+```
+
 ### settings.saveSSHPrivateKey
 ```
 dokploy("settings.saveSSHPrivateKey", { sshPrivateKey: "..." })
@@ -289,6 +294,11 @@ dokploy("stripe.upgradeSubscription", { tier: "...", serverQuantity: "...", isAn
 ### stripe.canCreateMoreServers
 ```
 dokploy("stripe.canCreateMoreServers")
+```
+
+### stripe.updateInvoiceNotifications
+```
+dokploy("stripe.updateInvoiceNotifications", { enabled: "..." })
 ```
 
 ### stripe.getInvoices

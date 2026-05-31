@@ -2,12 +2,12 @@
 
 ### notification.createSlack
 ```
-dokploy("notification.createSlack", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "...", channel: "..." })
+dokploy("notification.createSlack", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "...", channel: "..." })
 ```
 
 ### notification.updateSlack
 ```
-dokploy("notification.updateSlack", { notificationId: "...", slackId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", channel?: "...", organizationId?: "..." })
+dokploy("notification.updateSlack", { notificationId: "...", slackId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", channel?: "...", organizationId?: "..." })
 ```
 
 ### notification.testSlackConnection
@@ -17,12 +17,12 @@ dokploy("notification.testSlackConnection", { webhookUrl: "...", channel: "..." 
 
 ### notification.createTelegram
 ```
-dokploy("notification.createTelegram", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", botToken: "...", chatId: "...", messageThreadId: "..." })
+dokploy("notification.createTelegram", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", botToken: "...", chatId: "...", messageThreadId: "..." })
 ```
 
 ### notification.updateTelegram
 ```
-dokploy("notification.updateTelegram", { notificationId: "...", telegramId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", botToken?: "...", chatId?: "...", messageThreadId?: "...", organizationId?: "..." })
+dokploy("notification.updateTelegram", { notificationId: "...", telegramId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", botToken?: "...", chatId?: "...", messageThreadId?: "...", organizationId?: "..." })
 ```
 
 ### notification.testTelegramConnection
@@ -32,12 +32,12 @@ dokploy("notification.testTelegramConnection", { botToken: "...", chatId: "...",
 
 ### notification.createDiscord
 ```
-dokploy("notification.createDiscord", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "...", decoration: "..." })
+dokploy("notification.createDiscord", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "...", decoration: "..." })
 ```
 
 ### notification.updateDiscord
 ```
-dokploy("notification.updateDiscord", { notificationId: "...", discordId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", decoration?: "...", organizationId?: "..." })
+dokploy("notification.updateDiscord", { notificationId: "...", discordId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", decoration?: "...", organizationId?: "..." })
 ```
 
 ### notification.testDiscordConnection
@@ -47,12 +47,12 @@ dokploy("notification.testDiscordConnection", { webhookUrl: "...", decoration?: 
 
 ### notification.createEmail
 ```
-dokploy("notification.createEmail", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", smtpServer: "...", smtpPort: "...", username: "...", password: "...", fromAddress: "...", toAddresses: "..." })
+dokploy("notification.createEmail", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", smtpServer: "...", smtpPort: "...", username: "...", password: "...", fromAddress: "...", toAddresses: "..." })
 ```
 
 ### notification.updateEmail
 ```
-dokploy("notification.updateEmail", { notificationId: "...", emailId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", smtpServer?: "...", smtpPort?: "...", username?: "...", password?: "...", fromAddress?: "...", toAddresses?: "...", organizationId?: "..." })
+dokploy("notification.updateEmail", { notificationId: "...", emailId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", smtpServer?: "...", smtpPort?: "...", username?: "...", password?: "...", fromAddress?: "...", toAddresses?: "...", organizationId?: "..." })
 ```
 
 ### notification.testEmailConnection
@@ -62,12 +62,12 @@ dokploy("notification.testEmailConnection", { smtpServer: "...", smtpPort: "..."
 
 ### notification.createResend
 ```
-dokploy("notification.createResend", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", apiKey: "...", fromAddress: "...", toAddresses: "..." })
+dokploy("notification.createResend", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", apiKey: "...", fromAddress: "...", toAddresses: "..." })
 ```
 
 ### notification.updateResend
 ```
-dokploy("notification.updateResend", { notificationId: "...", resendId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", apiKey?: "...", fromAddress?: "...", toAddresses?: "...", organizationId?: "..." })
+dokploy("notification.updateResend", { notificationId: "...", resendId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", apiKey?: "...", fromAddress?: "...", toAddresses?: "...", organizationId?: "..." })
 ```
 
 ### notification.testResendConnection
@@ -97,12 +97,12 @@ dokploy("notification.receiveNotification", { Type: "...", Value: "...", Thresho
 
 ### notification.createGotify
 ```
-dokploy("notification.createGotify", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverUrl: "...", appToken: "...", priority: "...", decoration: "..." })
+dokploy("notification.createGotify", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverUrl: "...", appToken: "...", priority: "...", decoration: "..." })
 ```
 
 ### notification.updateGotify
 ```
-dokploy("notification.updateGotify", { notificationId: "...", gotifyId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverUrl?: "...", appToken?: "...", priority?: "...", decoration?: "...", organizationId?: "..." })
+dokploy("notification.updateGotify", { notificationId: "...", gotifyId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverUrl?: "...", appToken?: "...", priority?: "...", decoration?: "...", organizationId?: "..." })
 ```
 
 ### notification.testGotifyConnection
@@ -112,12 +112,12 @@ dokploy("notification.testGotifyConnection", { serverUrl: "...", appToken: "..."
 
 ### notification.createNtfy
 ```
-dokploy("notification.createNtfy", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverUrl: "...", topic: "...", accessToken: "...", priority: "..." })
+dokploy("notification.createNtfy", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverUrl: "...", topic: "...", accessToken: "...", priority: "..." })
 ```
 
 ### notification.updateNtfy
 ```
-dokploy("notification.updateNtfy", { notificationId: "...", ntfyId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverUrl?: "...", topic?: "...", accessToken?: "...", priority?: "...", organizationId?: "..." })
+dokploy("notification.updateNtfy", { notificationId: "...", ntfyId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverUrl?: "...", topic?: "...", accessToken?: "...", priority?: "...", organizationId?: "..." })
 ```
 
 ### notification.testNtfyConnection
@@ -125,14 +125,29 @@ dokploy("notification.updateNtfy", { notificationId: "...", ntfyId: "...", appBu
 dokploy("notification.testNtfyConnection", { serverUrl: "...", topic: "...", accessToken: "...", priority: "..." })
 ```
 
+### notification.createMattermost
+```
+dokploy("notification.createMattermost", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "...", channel?: "...", username?: "..." })
+```
+
+### notification.updateMattermost
+```
+dokploy("notification.updateMattermost", { notificationId: "...", mattermostId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", channel?: "...", username?: "...", organizationId?: "..." })
+```
+
+### notification.testMattermostConnection
+```
+dokploy("notification.testMattermostConnection", { webhookUrl: "...", channel?: "...", username?: "..." })
+```
+
 ### notification.createCustom
 ```
-dokploy("notification.createCustom", { name: "...", endpoint: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", headers?: "..." })
+dokploy("notification.createCustom", { name: "...", endpoint: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", headers?: "..." })
 ```
 
 ### notification.updateCustom
 ```
-dokploy("notification.updateCustom", { notificationId: "...", customId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", endpoint?: "...", headers?: "...", organizationId?: "..." })
+dokploy("notification.updateCustom", { notificationId: "...", customId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", endpoint?: "...", headers?: "...", organizationId?: "..." })
 ```
 
 ### notification.testCustomConnection
@@ -142,12 +157,12 @@ dokploy("notification.testCustomConnection", { endpoint: "...", headers?: "..." 
 
 ### notification.createLark
 ```
-dokploy("notification.createLark", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "..." })
+dokploy("notification.createLark", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "..." })
 ```
 
 ### notification.updateLark
 ```
-dokploy("notification.updateLark", { notificationId: "...", larkId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", organizationId?: "..." })
+dokploy("notification.updateLark", { notificationId: "...", larkId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", organizationId?: "..." })
 ```
 
 ### notification.testLarkConnection
@@ -157,12 +172,12 @@ dokploy("notification.testLarkConnection", { webhookUrl: "..." })
 
 ### notification.createTeams
 ```
-dokploy("notification.createTeams", { appBuildError: "...", databaseBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "..." })
+dokploy("notification.createTeams", { appBuildError: "...", databaseBackup: "...", dokployBackup: "...", volumeBackup: "...", dokployRestart: "...", name: "...", appDeploy: "...", dockerCleanup: "...", serverThreshold: "...", webhookUrl: "..." })
 ```
 
 ### notification.updateTeams
 ```
-dokploy("notification.updateTeams", { notificationId: "...", teamsId: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", organizationId?: "..." })
+dokploy("notification.updateTeams", { notificationId: "...", teamsId: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", webhookUrl?: "...", organizationId?: "..." })
 ```
 
 ### notification.testTeamsConnection
@@ -172,12 +187,12 @@ dokploy("notification.testTeamsConnection", { webhookUrl: "..." })
 
 ### notification.createPushover
 ```
-dokploy("notification.createPushover", { name: "...", userKey: "...", apiToken: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", priority?: "...", retry?: "...", expire?: "..." })
+dokploy("notification.createPushover", { name: "...", userKey: "...", apiToken: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "...", priority?: "...", retry?: "...", expire?: "..." })
 ```
 
 ### notification.updatePushover
 ```
-dokploy("notification.updatePushover", { notificationId: "...", pushoverId: "...", organizationId?: "...", userKey?: "...", apiToken?: "...", priority?: "...", retry?: "...", expire?: "...", appBuildError?: "...", databaseBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "..." })
+dokploy("notification.updatePushover", { notificationId: "...", pushoverId: "...", organizationId?: "...", userKey?: "...", apiToken?: "...", priority?: "...", retry?: "...", expire?: "...", appBuildError?: "...", databaseBackup?: "...", dokployBackup?: "...", volumeBackup?: "...", dokployRestart?: "...", name?: "...", appDeploy?: "...", dockerCleanup?: "...", serverThreshold?: "..." })
 ```
 
 ### notification.testPushoverConnection

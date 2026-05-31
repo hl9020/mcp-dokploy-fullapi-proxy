@@ -22,6 +22,11 @@ dokploy("server.getDefaultCommand", { serverId: "..." })
 dokploy("server.all")
 ```
 
+### server.allForPermissions
+```
+dokploy("server.allForPermissions")
+```
+
 ### server.count
 ```
 dokploy("server.count")
@@ -119,4 +124,9 @@ dokploy("swarm.getNodeInfo", { nodeId: "...", serverId?: "..." })
 ### swarm.getNodeApps
 ```
 dokploy("swarm.getNodeApps", { serverId?: "..." })
+```
+
+### swarm.getContainerStats
+```
+dokploy("swarm.getContainerStats", { serverId?: "..." })
 ```

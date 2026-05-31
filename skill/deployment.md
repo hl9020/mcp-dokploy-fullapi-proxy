@@ -42,6 +42,11 @@ dokploy("deployment.killProcess", { deploymentId: "..." })
 dokploy("deployment.removeDeployment", { deploymentId: "..." })
 ```
 
+### deployment.readLogs
+```
+dokploy("deployment.readLogs", { deploymentId: "...", tail?: "..." })
+```
+
 ## Previewdeployment
 
 ### previewDeployment.all

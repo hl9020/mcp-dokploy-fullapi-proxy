@@ -50,22 +50,22 @@ dokploy("application.saveBuildType", { applicationId: "...", buildType: "...", d
 
 ### application.saveGithubProvider
 ```
-dokploy("application.saveGithubProvider", { applicationId: "...", repository: "...", branch: "...", owner: "...", buildPath: "...", githubId: "...", triggerType: "...", enableSubmodules?: "...", watchPaths?: "..." })
+dokploy("application.saveGithubProvider", { applicationId: "...", repository: "...", owner: "...", buildPath: "...", githubId: "...", branch: "...", triggerType: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveGitlabProvider
 ```
-dokploy("application.saveGitlabProvider", { applicationId: "...", gitlabBranch: "...", gitlabBuildPath: "...", gitlabOwner: "...", gitlabRepository: "...", gitlabId: "...", gitlabProjectId: "...", gitlabPathNamespace: "...", enableSubmodules?: "...", watchPaths?: "..." })
+dokploy("application.saveGitlabProvider", { applicationId: "...", gitlabBuildPath: "...", gitlabOwner: "...", gitlabRepository: "...", gitlabId: "...", gitlabProjectId: "...", gitlabPathNamespace: "...", gitlabBranch: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveBitbucketProvider
 ```
-dokploy("application.saveBitbucketProvider", { bitbucketBranch: "...", bitbucketBuildPath: "...", bitbucketOwner: "...", bitbucketRepository: "...", bitbucketRepositorySlug: "...", bitbucketId: "...", applicationId: "...", enableSubmodules?: "...", watchPaths?: "..." })
+dokploy("application.saveBitbucketProvider", { bitbucketBuildPath: "...", bitbucketOwner: "...", bitbucketRepository: "...", bitbucketRepositorySlug: "...", bitbucketId: "...", applicationId: "...", bitbucketBranch: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveGiteaProvider
 ```
-dokploy("application.saveGiteaProvider", { applicationId: "...", giteaBranch: "...", giteaBuildPath: "...", giteaOwner: "...", giteaRepository: "...", giteaId: "...", enableSubmodules?: "...", watchPaths?: "..." })
+dokploy("application.saveGiteaProvider", { applicationId: "...", giteaBuildPath: "...", giteaOwner: "...", giteaRepository: "...", giteaId: "...", giteaBranch: "...", enableSubmodules?: "...", watchPaths?: "..." })
 ```
 
 ### application.saveDockerProvider
@@ -75,7 +75,7 @@ dokploy("application.saveDockerProvider", { dockerImage: "...", applicationId: "
 
 ### application.saveGitProvider
 ```
-dokploy("application.saveGitProvider", { customGitBranch: "...", applicationId: "...", customGitBuildPath: "...", customGitUrl: "...", watchPaths: "...", enableSubmodules?: "...", customGitSSHKeyId?: "..." })
+dokploy("application.saveGitProvider", { applicationId: "...", customGitBuildPath: "...", customGitUrl: "...", watchPaths: "...", customGitBranch: "...", enableSubmodules?: "...", customGitSSHKeyId?: "..." })
 ```
 
 ### application.disconnectGitProvider
@@ -90,7 +90,7 @@ dokploy("application.markRunning", { applicationId: "..." })
 
 ### application.update
 ```
-dokploy("application.update", { applicationId: "...", name?: "...", appName?: "...", description?: "...", env?: "...", previewEnv?: "...", watchPaths?: "...", previewBuildArgs?: "...", previewBuildSecrets?: "...", previewLabels?: "...", previewWildcard?: "...", previewPort?: "...", previewHttps?: "...", previewPath?: "...", previewCertificateType?: "...", previewCustomCertResolver?: "...", previewLimit?: "...", isPreviewDeploymentsActive?: "...", previewRequireCollaboratorPermissions?: "...", rollbackActive?: "...", buildArgs?: "...", buildSecrets?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", title?: "...", enabled?: "...", subtitle?: "...", command?: "...", args?: "...", refreshToken?: "...", sourceType?: "...", cleanCache?: "...", repository?: "...", owner?: "...", branch?: "...", buildPath?: "...", triggerType?: "...", autoDeploy?: "...", gitlabProjectId?: "...", gitlabRepository?: "...", gitlabOwner?: "...", gitlabBranch?: "...", gitlabBuildPath?: "...", gitlabPathNamespace?: "...", giteaRepository?: "...", giteaOwner?: "...", giteaBranch?: "...", giteaBuildPath?: "...", bitbucketRepository?: "...", bitbucketRepositorySlug?: "...", bitbucketOwner?: "...", bitbucketBranch?: "...", bitbucketBuildPath?: "...", username?: "...", password?: "...", dockerImage?: "...", registryUrl?: "...", customGitUrl?: "...", customGitBranch?: "...", customGitBuildPath?: "...", customGitSSHKeyId?: "...", enableSubmodules?: "...", dockerfile?: "...", dockerContextPath?: "...", dockerBuildStage?: "...", dropBuildPath?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", applicationStatus?: "...", buildType?: "...", railpackVersion?: "...", herokuVersion?: "...", publishDirectory?: "...", isStaticSpa?: "...", createEnvFile?: "...", createdAt?: "...", registryId?: "...", rollbackRegistryId?: "...", environmentId?: "...", githubId?: "...", gitlabId?: "...", giteaId?: "...", bitbucketId?: "...", buildServerId?: "...", buildRegistryId?: "..." })
+dokploy("application.update", { applicationId: "...", name?: "...", appName?: "...", description?: "...", env?: "...", previewEnv?: "...", watchPaths?: "...", previewBuildArgs?: "...", previewBuildSecrets?: "...", previewLabels?: "...", previewWildcard?: "...", previewPort?: "...", previewHttps?: "...", previewPath?: "...", previewCertificateType?: "...", previewCustomCertResolver?: "...", previewLimit?: "...", isPreviewDeploymentsActive?: "...", previewRequireCollaboratorPermissions?: "...", rollbackActive?: "...", buildArgs?: "...", buildSecrets?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", title?: "...", enabled?: "...", subtitle?: "...", command?: "...", args?: "...", icon?: "...", refreshToken?: "...", sourceType?: "...", cleanCache?: "...", repository?: "...", owner?: "...", branch?: "...", buildPath?: "...", triggerType?: "...", autoDeploy?: "...", gitlabProjectId?: "...", gitlabRepository?: "...", gitlabOwner?: "...", gitlabBranch?: "...", gitlabBuildPath?: "...", gitlabPathNamespace?: "...", giteaRepository?: "...", giteaOwner?: "...", giteaBranch?: "...", giteaBuildPath?: "...", bitbucketRepository?: "...", bitbucketRepositorySlug?: "...", bitbucketOwner?: "...", bitbucketBranch?: "...", bitbucketBuildPath?: "...", username?: "...", password?: "...", dockerImage?: "...", registryUrl?: "...", customGitUrl?: "...", customGitBranch?: "...", customGitBuildPath?: "...", customGitSSHKeyId?: "...", enableSubmodules?: "...", dockerfile?: "...", dockerContextPath?: "...", dockerBuildStage?: "...", dropBuildPath?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", applicationStatus?: "...", buildType?: "...", railpackVersion?: "...", herokuVersion?: "...", publishDirectory?: "...", isStaticSpa?: "...", createEnvFile?: "...", createdAt?: "...", registryId?: "...", rollbackRegistryId?: "...", environmentId?: "...", githubId?: "...", gitlabId?: "...", giteaId?: "...", bitbucketId?: "...", buildServerId?: "...", buildRegistryId?: "..." })
 ```
 
 ### application.refreshToken
@@ -151,4 +151,9 @@ dokploy("application.cancelDeployment", { applicationId: "..." })
 ### application.search
 ```
 dokploy("application.search", { q?: "...", name?: "...", appName?: "...", description?: "...", repository?: "...", owner?: "...", dockerImage?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### application.readLogs
+```
+dokploy("application.readLogs", { applicationId: "...", tail?: "...", since?: "...", search?: "..." })
 ```

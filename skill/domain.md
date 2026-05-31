@@ -5,7 +5,7 @@
 
 ### domain.create
 ```
-dokploy("domain.create", { host: "...", path?: "...", port?: "...", https?: "...", applicationId?: "...", certificateType?: "...", customCertResolver?: "...", composeId?: "...", serviceName?: "...", domainType?: "...", previewDeploymentId?: "...", internalPath?: "...", stripPath?: "..." })
+dokploy("domain.create", { host: "...", path?: "...", port?: "...", customEntrypoint?: "...", https?: "...", applicationId?: "...", certificateType?: "...", customCertResolver?: "...", composeId?: "...", serviceName?: "...", domainType?: "...", previewDeploymentId?: "...", internalPath?: "...", stripPath?: "...", middlewares?: "..." })
 ```
 
 ### domain.byApplicationId
@@ -30,7 +30,7 @@ dokploy("domain.canGenerateTraefikMeDomains", { serverId: "..." })
 
 ### domain.update
 ```
-dokploy("domain.update", { host: "...", domainId: "...", path?: "...", port?: "...", https?: "...", certificateType?: "...", customCertResolver?: "...", serviceName?: "...", domainType?: "...", internalPath?: "...", stripPath?: "..." })
+dokploy("domain.update", { host: "...", domainId: "...", path?: "...", port?: "...", customEntrypoint?: "...", https?: "...", certificateType?: "...", customCertResolver?: "...", serviceName?: "...", domainType?: "...", internalPath?: "...", stripPath?: "...", middlewares?: "..." })
 ```
 
 ### domain.one

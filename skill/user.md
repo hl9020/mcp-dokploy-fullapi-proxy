@@ -44,7 +44,7 @@ dokploy("user.getServerMetrics")
 
 ### user.update
 ```
-dokploy("user.update", { id?: "...", firstName?: "...", lastName?: "...", isRegistered?: "...", expirationDate?: "...", createdAt2?: "...", createdAt?: "...", twoFactorEnabled?: "...", email?: "...", emailVerified?: "...", image?: "...", banned?: "...", banReason?: "...", banExpires?: "...", updatedAt?: "...", enablePaidFeatures?: "...", allowImpersonation?: "...", enableEnterpriseFeatures?: "...", licenseKey?: "...", stripeCustomerId?: "...", stripeSubscriptionId?: "...", serversQuantity?: "...", password?: "...", currentPassword?: "..." })
+dokploy("user.update", { id?: "...", firstName?: "...", lastName?: "...", isRegistered?: "...", expirationDate?: "...", createdAt2?: "...", createdAt?: "...", twoFactorEnabled?: "...", email?: "...", emailVerified?: "...", image?: "...", banned?: "...", banReason?: "...", banExpires?: "...", updatedAt?: "...", enablePaidFeatures?: "...", allowImpersonation?: "...", enableEnterpriseFeatures?: "...", licenseKey?: "...", stripeCustomerId?: "...", stripeSubscriptionId?: "...", serversQuantity?: "...", sendInvoiceNotifications?: "...", password?: "...", currentPassword?: "..." })
 ```
 
 ### user.getUserByToken
@@ -64,7 +64,7 @@ dokploy("user.remove", { userId: "..." })
 
 ### user.assignPermissions
 ```
-dokploy("user.assignPermissions", { id: "...", accessedProjects: "...", accessedEnvironments: "...", accessedServices: "...", canCreateProjects: "...", canCreateServices: "...", canDeleteProjects: "...", canDeleteServices: "...", canAccessToDocker: "...", canAccessToTraefikFiles: "...", canAccessToAPI: "...", canAccessToSSHKeys: "...", canAccessToGitProviders: "...", canDeleteEnvironments: "...", canCreateEnvironments: "..." })
+dokploy("user.assignPermissions", { id: "...", accessedProjects: "...", accessedEnvironments: "...", accessedServices: "...", accessedGitProviders: "...", accessedServers: "...", canCreateProjects: "...", canCreateServices: "...", canDeleteProjects: "...", canDeleteServices: "...", canAccessToDocker: "...", canAccessToTraefikFiles: "...", canAccessToAPI: "...", canAccessToSSHKeys: "...", canAccessToGitProviders: "...", canDeleteEnvironments: "...", canCreateEnvironments: "..." })
 ```
 
 ### user.getInvitations
@@ -97,9 +97,24 @@ dokploy("user.createApiKey", { name: "...", metadata: "...", prefix?: "...", exp
 dokploy("user.checkUserOrganizations", { userId: "..." })
 ```
 
+### user.createUserWithCredentials
+```
+dokploy("user.createUserWithCredentials", { email: "...", password: "...", role: "..." })
+```
+
 ### user.sendInvitation
 ```
 dokploy("user.sendInvitation", { invitationId: "...", notificationId: "..." })
+```
+
+### user.getBookmarkedTemplates
+```
+dokploy("user.getBookmarkedTemplates")
+```
+
+### user.toggleTemplateBookmark
+```
+dokploy("user.toggleTemplateBookmark", { templateId: "..." })
 ```
 
 ## Organization

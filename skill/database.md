@@ -60,6 +60,11 @@ dokploy("postgres.reload", { postgresId: "...", appName: "..." })
 dokploy("postgres.update", { postgresId: "...", name?: "...", appName?: "...", databaseName?: "...", databaseUser?: "...", databasePassword?: "...", description?: "...", dockerImage?: "...", command?: "...", args?: "...", env?: "...", memoryReservation?: "...", externalPort?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", applicationStatus?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", createdAt?: "...", environmentId?: "..." })
 ```
 
+### postgres.changePassword
+```
+dokploy("postgres.changePassword", { postgresId: "...", password: "..." })
+```
+
 ### postgres.move
 ```
 dokploy("postgres.move", { postgresId: "...", targetEnvironmentId: "..." })
@@ -73,6 +78,11 @@ dokploy("postgres.rebuild", { postgresId: "..." })
 ### postgres.search
 ```
 dokploy("postgres.search", { q?: "...", name?: "...", appName?: "...", description?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### postgres.readLogs
+```
+dokploy("postgres.readLogs", { postgresId: "...", tail?: "...", since?: "...", search?: "..." })
 ```
 
 ## Mysql
@@ -132,6 +142,11 @@ dokploy("mysql.saveEnvironment", { mysqlId: "...", env: "..." })
 dokploy("mysql.update", { mysqlId: "...", name?: "...", appName?: "...", description?: "...", databaseName?: "...", databaseUser?: "...", databasePassword?: "...", databaseRootPassword?: "...", dockerImage?: "...", command?: "...", args?: "...", env?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", externalPort?: "...", applicationStatus?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", createdAt?: "...", environmentId?: "..." })
 ```
 
+### mysql.changePassword
+```
+dokploy("mysql.changePassword", { mysqlId: "...", password: "...", type?: "..." })
+```
+
 ### mysql.move
 ```
 dokploy("mysql.move", { mysqlId: "...", targetEnvironmentId: "..." })
@@ -145,6 +160,11 @@ dokploy("mysql.rebuild", { mysqlId: "..." })
 ### mysql.search
 ```
 dokploy("mysql.search", { q?: "...", name?: "...", appName?: "...", description?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### mysql.readLogs
+```
+dokploy("mysql.readLogs", { mysqlId: "...", tail?: "...", since?: "...", search?: "..." })
 ```
 
 ## Mariadb
@@ -204,6 +224,11 @@ dokploy("mariadb.reload", { mariadbId: "...", appName: "..." })
 dokploy("mariadb.update", { mariadbId: "...", name?: "...", appName?: "...", description?: "...", databaseName?: "...", databaseUser?: "...", databasePassword?: "...", databaseRootPassword?: "...", dockerImage?: "...", command?: "...", args?: "...", env?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", externalPort?: "...", applicationStatus?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", createdAt?: "...", environmentId?: "..." })
 ```
 
+### mariadb.changePassword
+```
+dokploy("mariadb.changePassword", { mariadbId: "...", password: "...", type?: "..." })
+```
+
 ### mariadb.move
 ```
 dokploy("mariadb.move", { mariadbId: "...", targetEnvironmentId: "..." })
@@ -217,6 +242,11 @@ dokploy("mariadb.rebuild", { mariadbId: "..." })
 ### mariadb.search
 ```
 dokploy("mariadb.search", { q?: "...", name?: "...", appName?: "...", description?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### mariadb.readLogs
+```
+dokploy("mariadb.readLogs", { mariadbId: "...", tail?: "...", since?: "...", search?: "..." })
 ```
 
 ## Mongo
@@ -276,6 +306,11 @@ dokploy("mongo.saveEnvironment", { mongoId: "...", env: "..." })
 dokploy("mongo.update", { mongoId: "...", name?: "...", appName?: "...", description?: "...", databaseUser?: "...", databasePassword?: "...", dockerImage?: "...", command?: "...", args?: "...", env?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", externalPort?: "...", applicationStatus?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", createdAt?: "...", environmentId?: "...", replicaSets?: "..." })
 ```
 
+### mongo.changePassword
+```
+dokploy("mongo.changePassword", { mongoId: "...", password: "..." })
+```
+
 ### mongo.move
 ```
 dokploy("mongo.move", { mongoId: "...", targetEnvironmentId: "..." })
@@ -289,6 +324,11 @@ dokploy("mongo.rebuild", { mongoId: "..." })
 ### mongo.search
 ```
 dokploy("mongo.search", { q?: "...", name?: "...", appName?: "...", description?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### mongo.readLogs
+```
+dokploy("mongo.readLogs", { mongoId: "...", tail?: "...", since?: "...", search?: "..." })
 ```
 
 ## Redis
@@ -348,6 +388,11 @@ dokploy("redis.saveEnvironment", { redisId: "...", env: "..." })
 dokploy("redis.update", { redisId: "...", name?: "...", appName?: "...", description?: "...", databasePassword?: "...", dockerImage?: "...", command?: "...", args?: "...", env?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", externalPort?: "...", createdAt?: "...", applicationStatus?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", ulimitsSwarm?: "...", replicas?: "...", environmentId?: "..." })
 ```
 
+### redis.changePassword
+```
+dokploy("redis.changePassword", { redisId: "...", password: "..." })
+```
+
 ### redis.move
 ```
 dokploy("redis.move", { redisId: "...", targetEnvironmentId: "..." })
@@ -361,4 +406,81 @@ dokploy("redis.rebuild", { redisId: "..." })
 ### redis.search
 ```
 dokploy("redis.search", { q?: "...", name?: "...", appName?: "...", description?: "...", projectId?: "...", environmentId?: "...", limit?: "...", offset?: "..." })
+```
+
+### redis.readLogs
+```
+dokploy("redis.readLogs", { redisId: "...", tail?: "...", since?: "...", search?: "..." })
+```
+
+## Libsql
+
+### libsql.create
+```
+dokploy("libsql.create", { name: "...", appName: "...", dockerImage: "...", environmentId: "...", description: "...", databaseUser: "...", databasePassword: "...", sqldNode: "...", sqldPrimaryUrl: "...", enableNamespaces: "...", serverId: "..." })
+```
+
+### libsql.one
+```
+dokploy("libsql.one", { libsqlId: "..." })
+```
+
+### libsql.start
+```
+dokploy("libsql.start", { libsqlId: "..." })
+```
+
+### libsql.stop
+```
+dokploy("libsql.stop", { libsqlId: "..." })
+```
+
+### libsql.saveExternalPorts
+```
+dokploy("libsql.saveExternalPorts", { libsqlId: "...", externalPort?: "...", externalGRPCPort?: "...", externalAdminPort?: "..." })
+```
+
+### libsql.deploy
+```
+dokploy("libsql.deploy", { libsqlId: "..." })
+```
+
+### libsql.changeStatus
+```
+dokploy("libsql.changeStatus", { libsqlId: "...", applicationStatus: "..." })
+```
+
+### libsql.remove
+```
+dokploy("libsql.remove", { libsqlId: "..." })
+```
+
+### libsql.saveEnvironment
+```
+dokploy("libsql.saveEnvironment", { libsqlId: "...", env: "..." })
+```
+
+### libsql.reload
+```
+dokploy("libsql.reload", { libsqlId: "...", appName: "..." })
+```
+
+### libsql.update
+```
+dokploy("libsql.update", { libsqlId: "...", name?: "...", appName?: "...", description?: "...", databaseUser?: "...", databasePassword?: "...", sqldNode?: "...", sqldPrimaryUrl?: "...", enableNamespaces?: "...", dockerImage?: "...", command?: "...", env?: "...", memoryReservation?: "...", memoryLimit?: "...", cpuReservation?: "...", cpuLimit?: "...", externalPort?: "...", externalGRPCPort?: "...", externalAdminPort?: "...", applicationStatus?: "...", healthCheckSwarm?: "...", restartPolicySwarm?: "...", placementSwarm?: "...", updateConfigSwarm?: "...", rollbackConfigSwarm?: "...", modeSwarm?: "...", labelsSwarm?: "...", networkSwarm?: "...", stopGracePeriodSwarm?: "...", endpointSpecSwarm?: "...", replicas?: "...", createdAt?: "...", environmentId?: "..." })
+```
+
+### libsql.move
+```
+dokploy("libsql.move", { libsqlId: "...", targetEnvironmentId: "..." })
+```
+
+### libsql.rebuild
+```
+dokploy("libsql.rebuild", { libsqlId: "..." })
+```
+
+### libsql.readLogs
+```
+dokploy("libsql.readLogs", { libsqlId: "...", tail?: "...", since?: "...", search?: "..." })
 ```

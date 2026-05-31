@@ -4,7 +4,7 @@ description: >
   Use this skill when the user asks to manage Dokploy infrastructure: deploy apps,
   manage compose services, configure domains, databases, servers, notifications,
   users, git providers, or any Dokploy administration task. Provides complete API
-  reference for all 473 Dokploy tRPC endpoints accessible via the dokploy MCP tool.
+  reference for all 526 Dokploy tRPC endpoints accessible via the dokploy MCP tool.
 ---
 
 # Dokploy MCP Light - API Skill
@@ -19,19 +19,19 @@ Read the matching reference file for the task:
 
 | Task | File | Endpoints |
 |------|------|-----------|
-| Projects, Environments & Tags | `project.md` | 23 |
-| Applications (Deploy, Config, Git, Traefik) | `app.md` | 30 |
-| Compose Services | `compose.md` | 28 |
+| Projects, Environments & Tags | `project.md` | 24 |
+| Applications (Deploy, Config, Git, Traefik) | `app.md` | 31 |
+| Compose Services | `compose.md` | 31 |
 | Domains & SSL | `domain.md` | 9 |
-| Databases (PG, MySQL, MariaDB, Mongo, Redis) | `database.md` | 70 |
-| Deployments, Preview, Rollback | `deployment.md` | 14 |
-| Docker Container | `docker.md` | 7 |
-| Server, Cluster, Swarm | `server.md` | 23 |
-| Notifications (Slack, Discord, Telegram, Email, ...) | `notification.md` | 38 |
-| Settings, Admin, Stripe, Whitelabeling, Audit Log | `settings.md` | 79 |
-| User, Organization & Custom Roles | `user.md` | 37 |
-| Git Providers (GitHub, GitLab, Bitbucket, Gitea) | `git.md` | 30 |
-| Mounts, Redirects, Security, Ports, Backups, Schedule, Certs, Registry, SSH, Destinations, Patches, Volume Backups, AI | `infra.md` | 85 |
+| Databases (PG, MySQL, MariaDB, Mongo, Redis) | `database.md` | 94 |
+| Deployments, Preview, Rollback | `deployment.md` | 15 |
+| Docker Container | `docker.md` | 12 |
+| Server, Cluster, Swarm | `server.md` | 25 |
+| Notifications (Slack, Discord, Telegram, Email, ...) | `notification.md` | 41 |
+| Settings, Admin, Stripe, Whitelabeling, Audit Log | `settings.md` | 81 |
+| User, Organization & Custom Roles | `user.md` | 40 |
+| Git Providers (GitHub, GitLab, Bitbucket, Gitea) | `git.md` | 32 |
+| Mounts, Redirects, Security, Ports, Backups, Schedule, Certs, Registry, SSH, Destinations, Patches, Volume Backups, AI | `infra.md` | 91 |
 
 ## Examples
 ```
