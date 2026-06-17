@@ -48,13 +48,14 @@ function instancesFromPrefixedEnv(): Record<string, DokployInstance> {
 }
 
 function fromEnv(): ServerConfig {
+  const requireInstance = /^(1|true|yes)$/i.test(process.env.DOKPLOY_REQUIRE_INSTANCE ?? "");
   const jsonRaw = process.env.DOKPLOY_INSTANCES;
   if (jsonRaw) {
     let parsed: Record<string, DokployInstance>;
     try { parsed = JSON.parse(jsonRaw); }
     catch (e) { throw new Error(`DOKPLOY_INSTANCES is not valid JSON: ${e instanceof Error ? e.message : String(e)}`); }
     const def = process.env.DOKPLOY_DEFAULT_INSTANCE;
-    return { instances: parsed, defaultInstance: def && parsed[def] ? def : Object.keys(parsed)[0] };
+    return { instances: parsed, defaultInstance: def && parsed[def] ? def : Object.keys(parsed)[0], requireInstance };
   }
 
   const prefixed = instancesFromPrefixedEnv();
@@ -62,10 +63,10 @@ function fromEnv(): ServerConfig {
   const singleToken = process.env.DOKPLOY_TOKEN ?? process.env.DOKPLOY_API_KEY ?? "";
   if (single && singleToken) prefixed.default ??= { url: single, token: singleToken };
 
-  if (Object.keys(prefixed).length === 0) return { instances: {} };
+  if (Object.keys(prefixed).length === 0) return { instances: {}, requireInstance };
   const def = process.env.DOKPLOY_DEFAULT_INSTANCE;
   const defaultInstance = def && prefixed[def] ? def : (prefixed.default ? "default" : Object.keys(prefixed)[0]);
-  return { instances: prefixed, defaultInstance };
+  return { instances: prefixed, defaultInstance, requireInstance };
 }
 
 function validate(cfg: ServerConfig): ServerConfig {
@@ -91,6 +92,7 @@ function validate(cfg: ServerConfig): ServerConfig {
     cfg.instances[id] ??= inst;
   }
   if (!cfg.defaultInstance && env.defaultInstance) cfg.defaultInstance = env.defaultInstance;
+  if (cfg.requireInstance === undefined) cfg.requireInstance = env.requireInstance;
 
   const keys = Object.keys(cfg.instances);
   if (keys.length > 0 && (!cfg.defaultInstance || !cfg.instances[cfg.defaultInstance])) {

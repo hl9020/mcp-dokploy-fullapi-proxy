@@ -29,8 +29,13 @@ export function createServer(config: ServerConfig): McpServer {
     version: "1.1.0",
   });
 
-  const instanceDesc = instanceIds.length > 1
-    ? ` Use 'instance' to target a specific Dokploy instance (available: ${instanceIds.join(", ")}). Default: ${config.defaultInstance}.`
+  const multi = instanceIds.length > 1;
+  const requireInstance = !!config.requireInstance && multi;
+
+  const instanceDesc = multi
+    ? (requireInstance
+        ? ` ⚠️ Multiple Dokploy instances configured (${instanceIds.join(", ")}) and NO default - you MUST pass 'instance' on every call.`
+        : ` Use 'instance' to target a specific Dokploy instance (available: ${instanceIds.join(", ")}). Default: ${config.defaultInstance}.`)
     : "";
 
   server.tool(
@@ -47,6 +52,9 @@ export function createServer(config: ServerConfig): McpServer {
       instance: z.string().optional().describe("Target Dokploy instance ID"),
     },
     async ({ method, params, pick, instance }) => {
+      if (requireInstance && !instance) {
+        return { content: [{ type: "text" as const, text: `❌ This proxy serves multiple instances and has no default. Pass 'instance' (available: ${instanceIds.join(", ")}).` }], isError: true };
+      }
       const resolved = resolveInstance(config, instance);
       if (!resolved) {
         const msg = instance

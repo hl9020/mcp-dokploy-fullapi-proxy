@@ -23,6 +23,9 @@ configured, the tool description lists the available instance ids and the defaul
 - Pass `instance: "<id>"` to target a specific one.
 - With a single instance configured, `instance` can be ignored entirely.
 - Responses from a multi-instance setup are prefixed with `[<id>]`.
+- Some setups require an explicit `instance` (no default). The tool description
+  says so and a call without `instance` will error - always check the description
+  and pass `instance` when targeting such a proxy.
 
 ## Routing
 Read the matching reference file for the task:

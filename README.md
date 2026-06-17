@@ -64,6 +64,8 @@ DOKPLOY_DEFAULT_INSTANCE=srv01
 
 The `<ID>` becomes a lowercase instance id (`DOKPLOY_SRV01_URL` -> `srv01`). Reserved names (`URL`, `TOKEN`, `API`, `CONFIG`, `INSTANCES`) are excluded so single-instance vars are not misparsed. `DOKPLOY_DEFAULT_INSTANCE` selects the default; otherwise `default` (if present) or the first id wins.
 
+**Require explicit instance:** Set `DOKPLOY_REQUIRE_INSTANCE=true` to disable the silent default in multi-instance setups. Every `dokploy()` call must then pass `instance` explicitly, otherwise it errors. Prevents a fresh conversation from accidentally hitting the wrong instance. Has no effect with a single instance.
+
 ### Single-Instance (env vars, backward-compatible)
 
 For a single instance, env vars still work as before:
@@ -75,6 +77,7 @@ For a single instance, env vars still work as before:
 | `DOKPLOY_INSTANCES` | No | - | JSON map of multiple instances |
 | `DOKPLOY_<ID>_URL` / `_TOKEN` | No | - | Prefixed per-instance vars |
 | `DOKPLOY_DEFAULT_INSTANCE` | No | - | Default instance id |
+| `DOKPLOY_REQUIRE_INSTANCE` | No | `false` | Force explicit `instance` on every call (multi-instance only) |
 | `DOKPLOY_CONFIG` | No | - | Path to config file |
 
 When using env vars without a config file, a `default` instance is created automatically. Env vars are also merged as fallback into config-file setups.

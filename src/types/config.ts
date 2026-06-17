@@ -6,4 +6,5 @@ export interface DokployInstance {
 export interface ServerConfig {
   instances: Record<string, DokployInstance>;
   defaultInstance?: string;
+  requireInstance?: boolean;
 }
