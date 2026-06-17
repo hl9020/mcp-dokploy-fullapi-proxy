@@ -41,14 +41,40 @@ The config file is searched in this order:
 2. `./config.json` (current working directory)
 3. `~/.mcp-dokploy/config.json` (home directory)
 
+### Multi-Instance via env vars
+
+For container/server deployments (Docker, Dokploy) where a config file is impractical, define multiple instances purely via env vars - two interchangeable styles:
+
+**A) JSON var** (`DOKPLOY_INSTANCES`):
+
+```
+DOKPLOY_INSTANCES={"srv01":{"url":"https://a.example.com/api","token":"tok-a"},"hsh":{"url":"https://b.example.com/api","token":"tok-b"}}
+DOKPLOY_DEFAULT_INSTANCE=srv01
+```
+
+**B) Prefixed vars** (`DOKPLOY_<ID>_URL` / `DOKPLOY_<ID>_TOKEN`):
+
+```
+DOKPLOY_SRV01_URL=https://a.example.com/api
+DOKPLOY_SRV01_TOKEN=tok-a
+DOKPLOY_HSH_URL=https://b.example.com/api
+DOKPLOY_HSH_TOKEN=tok-b
+DOKPLOY_DEFAULT_INSTANCE=srv01
+```
+
+The `<ID>` becomes a lowercase instance id (`DOKPLOY_SRV01_URL` -> `srv01`). Reserved names (`URL`, `TOKEN`, `API`, `CONFIG`, `INSTANCES`) are excluded so single-instance vars are not misparsed. `DOKPLOY_DEFAULT_INSTANCE` selects the default; otherwise `default` (if present) or the first id wins.
+
 ### Single-Instance (env vars, backward-compatible)
 
 For a single instance, env vars still work as before:
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `DOKPLOY_URL` | No | - | Dokploy API base URL |
+| `DOKPLOY_URL` | No | - | Dokploy API base URL (single instance, id `default`) |
 | `DOKPLOY_TOKEN` | No | - | API authentication token |
+| `DOKPLOY_INSTANCES` | No | - | JSON map of multiple instances |
+| `DOKPLOY_<ID>_URL` / `_TOKEN` | No | - | Prefixed per-instance vars |
+| `DOKPLOY_DEFAULT_INSTANCE` | No | - | Default instance id |
 | `DOKPLOY_CONFIG` | No | - | Path to config file |
 
 When using env vars without a config file, a `default` instance is created automatically. Env vars are also merged as fallback into config-file setups.

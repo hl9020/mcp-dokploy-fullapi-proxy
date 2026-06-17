@@ -10,9 +10,19 @@ description: >
 # Dokploy MCP Light - API Skill
 
 ## Tool
-One single MCP tool: `dokploy(method, params?)`
+One single MCP tool: `dokploy(method, params?, pick?, instance?)`
 - `method`: tRPC path like `project.all`, `application.deploy`
 - `params`: JSON object with parameters (optional for GET endpoints)
+- `pick`: optional array of field names to filter the response (see below)
+- `instance`: optional target instance id (multi-instance setups, see below)
+
+## Multi-Instance
+The proxy can serve multiple Dokploy instances at once. When more than one is
+configured, the tool description lists the available instance ids and the default.
+- Omit `instance` -> the configured default instance is used.
+- Pass `instance: "<id>"` to target a specific one.
+- With a single instance configured, `instance` can be ignored entirely.
+- Responses from a multi-instance setup are prefixed with `[<id>]`.
 
 ## Routing
 Read the matching reference file for the task:
@@ -39,6 +49,7 @@ dokploy("project.all")
 dokploy("application.deploy", { applicationId: "abc123" })
 dokploy("compose.update", { composeId: "xyz", composeFile: "..." })
 dokploy("postgres.create", { name: "mydb", environmentId: "..." })
+dokploy("project.all", {}, undefined, "<instance-id>")   // target a specific instance
 ```
 
 ## Notes
