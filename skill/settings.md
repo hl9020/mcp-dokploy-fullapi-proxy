@@ -97,6 +97,21 @@ dokploy("settings.cleanSSHPrivateKey")
 dokploy("settings.updateDockerCleanup", { enableDockerCleanup: "...", serverId?: "..." })
 ```
 
+### settings.updateRemoteServersOnly
+```
+dokploy("settings.updateRemoteServersOnly", { remoteServersOnly: "..." })
+```
+
+### settings.updateBuildsConcurrency
+```
+dokploy("settings.updateBuildsConcurrency", { buildsConcurrency: "..." })
+```
+
+### settings.updateEnforceSSO
+```
+dokploy("settings.updateEnforceSSO", { enforceSSO: "..." })
+```
+
 ### settings.readTraefikConfig
 ```
 dokploy("settings.readTraefikConfig")
@@ -311,6 +326,11 @@ dokploy("stripe.getInvoices")
 ### sso.showSignInWithSSO
 ```
 dokploy("sso.showSignInWithSSO")
+```
+
+### sso.enforceSSO
+```
+dokploy("sso.enforceSSO")
 ```
 
 ### sso.listProviders

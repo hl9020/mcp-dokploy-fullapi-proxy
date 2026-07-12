@@ -167,12 +167,12 @@ dokploy("backup.listBackupFiles", { destinationId: "...", search: "...", serverI
 
 ### schedule.create
 ```
-dokploy("schedule.create", { name: "...", cronExpression: "...", command: "...", scheduleId?: "...", description?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", userId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
+dokploy("schedule.create", { name: "...", cronExpression: "...", command: "...", scheduleId?: "...", description?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", organizationId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
 ```
 
 ### schedule.update
 ```
-dokploy("schedule.update", { scheduleId: "...", name: "...", cronExpression: "...", command: "...", description?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", userId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
+dokploy("schedule.update", { scheduleId: "...", name: "...", cronExpression: "...", command: "...", description?: "...", appName?: "...", serviceName?: "...", shellType?: "...", scheduleType?: "...", script?: "...", applicationId?: "...", composeId?: "...", serverId?: "...", organizationId?: "...", enabled?: "...", timezone?: "...", createdAt?: "..." })
 ```
 
 ### schedule.delete
@@ -482,4 +482,56 @@ dokploy("ai.suggest", { aiId: "...", input: "...", serverId?: "..." })
 ### ai.deploy
 ```
 dokploy("ai.deploy", { environmentId: "...", id: "...", dockerCompose: "...", envVariables: "...", name: "...", description: "...", serverId?: "...", domains?: "...", configFiles?: "..." })
+```
+
+## Forwardauth
+
+### forwardAuth.getAuthDomain
+```
+dokploy("forwardAuth.getAuthDomain", { serverId: "..." })
+```
+
+### forwardAuth.setAuthDomain
+```
+dokploy("forwardAuth.setAuthDomain", { serverId: "...", authDomain: "...", https?: "...", certificateType?: "...", customCertResolver?: "..." })
+```
+
+### forwardAuth.removeAuthDomain
+```
+dokploy("forwardAuth.removeAuthDomain", { serverId: "..." })
+```
+
+### forwardAuth.listProviders
+```
+dokploy("forwardAuth.listProviders")
+```
+
+### forwardAuth.serverStatus
+```
+dokploy("forwardAuth.serverStatus")
+```
+
+### forwardAuth.deployOnServer
+```
+dokploy("forwardAuth.deployOnServer", { serverId: "...", providerId: "..." })
+```
+
+### forwardAuth.removeOnServer
+```
+dokploy("forwardAuth.removeOnServer", { serverId: "..." })
+```
+
+### forwardAuth.status
+```
+dokploy("forwardAuth.status", { domainId: "..." })
+```
+
+### forwardAuth.enable
+```
+dokploy("forwardAuth.enable", { domainId: "..." })
+```
+
+### forwardAuth.disable
+```
+dokploy("forwardAuth.disable", { domainId: "..." })
 ```

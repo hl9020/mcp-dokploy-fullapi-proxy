@@ -4,7 +4,7 @@
 
 ### server.create
 ```
-dokploy("server.create", { name: "...", description: "...", ipAddress: "...", port: "...", username: "...", sshKeyId: "...", serverType: "..." })
+dokploy("server.create", { name: "...", description: "...", ipAddress: "...", port: "...", username: "...", sshKeyId: "...", serverType: "...", enableDockerCleanup?: "..." })
 ```
 
 ### server.one
@@ -69,7 +69,12 @@ dokploy("server.remove", { serverId: "..." })
 
 ### server.update
 ```
-dokploy("server.update", { name: "...", description: "...", serverId: "...", ipAddress: "...", port: "...", username: "...", sshKeyId: "...", serverType: "...", command?: "..." })
+dokploy("server.update", { name: "...", description: "...", serverId: "...", ipAddress: "...", port: "...", username: "...", sshKeyId: "...", serverType: "...", enableDockerCleanup?: "...", command?: "..." })
+```
+
+### server.updateBuildsConcurrency
+```
+dokploy("server.updateBuildsConcurrency", { serverId: "...", buildsConcurrency: "..." })
 ```
 
 ### server.publicIp
